@@ -1,0 +1,3 @@
+[submodule "RZPlotView/RZPlotView/External/RZCollectionList"]
+	path = RZPlotView/RZPlotView/External/RZCollectionList
+	url = https://github.com/Raizlabs/RZCollectionList.git

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>369674E2-2F58-4F68-B45F-4019B31FB101</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RZPlotView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6A23F80D-92C9-4B3F-8B3C-39C70B9B29A3</key>
+		<string>https://github.com/Raizlabs/RZCollectionList.git</string>
+		<key>94A763D5-7FD5-4DF1-B870-515E10E5A208</key>
+		<string>https://github.com/sixstringtheory/RZPlotView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RZPlotView/RZPlotView.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6A23F80D-92C9-4B3F-8B3C-39C70B9B29A3</key>
+		<string>../../RZPlotView/External/RZCollectionList</string>
+		<key>94A763D5-7FD5-4DF1-B870-515E10E5A208</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/sixstringtheory/RZPlotView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>94A763D5-7FD5-4DF1-B870-515E10E5A208</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6A23F80D-92C9-4B3F-8B3C-39C70B9B29A3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RZCollectionList</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>94A763D5-7FD5-4DF1-B870-515E10E5A208</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RZPlotView</string>
+		</dict>
+	</array>
+</dict>
+</plist>
