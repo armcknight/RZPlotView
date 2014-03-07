@@ -120,23 +120,41 @@
             CGContextFillPath(currentContext);
             
             // set plot line width/color
-            CGContextSetLineWidth(currentContext, self.lineThickness);
+            CGContextSetLineWidth(currentContext, 1.f);
             CGContextSetStrokeColorWithColor(currentContext, [UIColor colorWithHue:self.lineColor saturation:1.f brightness:1.f alpha:self.lineAlpha].CGColor);
             CGContextSetFillColorWithColor(currentContext, [UIColor colorWithHue:self.lineColor saturation:1.f brightness:1.f alpha:self.lineAlpha].CGColor);
             
+            // draw line of given thickness by actually filling a polygon
+            CGMutablePathRef path = CGPathCreateMutable();
+            //
+            // draw top of line
+            //
+            
             // draw first point
-            yVal = self.yRange / 2.f - yScale * self.values[0];
-            CGContextFillEllipseInRect(currentContext, CGRectMake(0.f - self.lineThickness / 2.f, yVal - self.lineThickness / 2.f, self.lineThickness, self.lineThickness));
-            CGContextMoveToPoint(currentContext, 0.f, yVal);
+            yVal = self.yRange / 2.f - yScale * self.values[0] - self.lineThickness / 2.f;
+            CGPathMoveToPoint(path, nil, 0.f, yVal);
             
             // draw remaining points
-            for(int i = 0; i < self.maxNumberOfValues; i++) {
-                yVal = self.yRange / 2.f - yScale * self.values[i];
-                CGContextAddLineToPoint(currentContext, i, yVal);
-                CGContextStrokePath(currentContext);
-                CGContextFillEllipseInRect(currentContext, CGRectMake(i - self.lineThickness / 2.f, yVal - self.lineThickness / 2.f, self.lineThickness, self.lineThickness));
-                CGContextMoveToPoint(currentContext, i, yVal);
+            for(int i = 1; i < self.maxNumberOfValues; i++) {
+                yVal = self.yRange / 2.f - yScale * self.values[i] - self.lineThickness / 2.f;
+                CGPathAddLineToPoint(path, nil, i, yVal);
             }
+            
+            //
+            // draw bottom of line
+            //
+            for (NSInteger i = self.maxNumberOfValues - 1; i >= 0; i--) {
+                yVal = self.yRange / 2.f - yScale * self.values[i] + self.lineThickness / 2.f;
+                CGPathAddLineToPoint(path, nil, i, yVal);
+            }
+            
+            // close polygon
+            yVal = self.yRange / 2.f - yScale * self.values[0] - self.lineThickness / 2.f;
+            CGPathAddLineToPoint(path, nil, 0, yVal);
+            
+            CGContextAddPath(currentContext, path);
+            CGContextFillPath(currentContext);
+            
         } else if (self.drawingMode == RZStreamingPlotDrawingModePulse) {
             // set plot line width/color
             CGContextSetLineWidth(currentContext, self.lineThickness);
