@@ -33,13 +33,11 @@
 		37E95DE0185B779900CBEEE8 /* RZObserverCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E95DD3185B779900CBEEE8 /* RZObserverCollection.m */; };
 		37E95DE1185B779900CBEEE8 /* RZSortedCollectionList.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E95DD5185B779900CBEEE8 /* RZSortedCollectionList.m */; };
 		37E95DE3185B77AC00CBEEE8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E95DE2185B77AC00CBEEE8 /* CoreData.framework */; };
-		37E95DE6185B81AC00CBEEE8 /* RZStreamingPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E95DE5185B81AC00CBEEE8 /* RZStreamingPlotViewController.m */; };
-		37E95DEA185B81EA00CBEEE8 /* RZStreamingPlotNibBasedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E95DE8185B81EA00CBEEE8 /* RZStreamingPlotNibBasedViewController.m */; };
-		37E95DEB185B81EA00CBEEE8 /* RZStreamingPlotNibBasedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E95DE9185B81EA00CBEEE8 /* RZStreamingPlotNibBasedViewController.xib */; };
+		37E95DEA185B81EA00CBEEE8 /* RZStaticStreamingPlotDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E95DE8185B81EA00CBEEE8 /* RZStaticStreamingPlotDemo.m */; };
+		37E95DEB185B81EA00CBEEE8 /* RZStaticStreamingPlotDemo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E95DE9185B81EA00CBEEE8 /* RZStaticStreamingPlotDemo.xib */; };
 		37E95DEE185B85DB00CBEEE8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E95DED185B85DB00CBEEE8 /* CoreMotion.framework */; };
-		37E95DF3185BB38C00CBEEE8 /* RZStaticPlotNibBasedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E95DF1185BB38C00CBEEE8 /* RZStaticPlotNibBasedViewController.m */; };
-		37E95DF4185BB38C00CBEEE8 /* RZStaticPlotNibBasedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E95DF2185BB38C00CBEEE8 /* RZStaticPlotNibBasedViewController.xib */; };
-		37E95DF8185BB39300CBEEE8 /* RZStaticPlotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E95DF6185BB39300CBEEE8 /* RZStaticPlotViewController.m */; };
+		37E95DF3185BB38C00CBEEE8 /* RZPulsePlotDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E95DF1185BB38C00CBEEE8 /* RZPulsePlotDemo.m */; };
+		37E95DF4185BB38C00CBEEE8 /* RZPulsePlotDemo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E95DF2185BB38C00CBEEE8 /* RZPulsePlotDemo.xib */; };
 		4904B0EC18DC8671001521E5 /* RZPulsePlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4904B0EB18DC8671001521E5 /* RZPulsePlotView.m */; };
 		4904B0EF18DC8685001521E5 /* RZPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4904B0EE18DC8685001521E5 /* RZPlotView.m */; };
 		4904B0F318DC87C7001521E5 /* RZStaticPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4904B0F218DC87C7001521E5 /* RZStaticPlotView.m */; };
@@ -103,17 +101,13 @@
 		37E95DD5185B779900CBEEE8 /* RZSortedCollectionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZSortedCollectionList.m; sourceTree = "<group>"; };
 		37E95DD6185B779900CBEEE8 /* RZCollectionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZCollectionList.h; sourceTree = "<group>"; };
 		37E95DE2185B77AC00CBEEE8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		37E95DE4185B81AC00CBEEE8 /* RZStreamingPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZStreamingPlotViewController.h; sourceTree = "<group>"; };
-		37E95DE5185B81AC00CBEEE8 /* RZStreamingPlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZStreamingPlotViewController.m; sourceTree = "<group>"; };
-		37E95DE7185B81EA00CBEEE8 /* RZStreamingPlotNibBasedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZStreamingPlotNibBasedViewController.h; sourceTree = "<group>"; };
-		37E95DE8185B81EA00CBEEE8 /* RZStreamingPlotNibBasedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZStreamingPlotNibBasedViewController.m; sourceTree = "<group>"; };
-		37E95DE9185B81EA00CBEEE8 /* RZStreamingPlotNibBasedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RZStreamingPlotNibBasedViewController.xib; sourceTree = "<group>"; };
+		37E95DE7185B81EA00CBEEE8 /* RZStaticStreamingPlotDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZStaticStreamingPlotDemo.h; sourceTree = "<group>"; };
+		37E95DE8185B81EA00CBEEE8 /* RZStaticStreamingPlotDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZStaticStreamingPlotDemo.m; sourceTree = "<group>"; };
+		37E95DE9185B81EA00CBEEE8 /* RZStaticStreamingPlotDemo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RZStaticStreamingPlotDemo.xib; sourceTree = "<group>"; };
 		37E95DED185B85DB00CBEEE8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		37E95DF0185BB38C00CBEEE8 /* RZStaticPlotNibBasedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZStaticPlotNibBasedViewController.h; sourceTree = "<group>"; };
-		37E95DF1185BB38C00CBEEE8 /* RZStaticPlotNibBasedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZStaticPlotNibBasedViewController.m; sourceTree = "<group>"; };
-		37E95DF2185BB38C00CBEEE8 /* RZStaticPlotNibBasedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RZStaticPlotNibBasedViewController.xib; sourceTree = "<group>"; };
-		37E95DF5185BB39300CBEEE8 /* RZStaticPlotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZStaticPlotViewController.h; sourceTree = "<group>"; };
-		37E95DF6185BB39300CBEEE8 /* RZStaticPlotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZStaticPlotViewController.m; sourceTree = "<group>"; };
+		37E95DF0185BB38C00CBEEE8 /* RZPulsePlotDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZPulsePlotDemo.h; sourceTree = "<group>"; };
+		37E95DF1185BB38C00CBEEE8 /* RZPulsePlotDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZPulsePlotDemo.m; sourceTree = "<group>"; };
+		37E95DF2185BB38C00CBEEE8 /* RZPulsePlotDemo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RZPulsePlotDemo.xib; sourceTree = "<group>"; };
 		4904B0EA18DC8671001521E5 /* RZPulsePlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZPulsePlotView.h; sourceTree = "<group>"; };
 		4904B0EB18DC8671001521E5 /* RZPulsePlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZPulsePlotView.m; sourceTree = "<group>"; };
 		4904B0ED18DC8685001521E5 /* RZPlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZPlotView.h; sourceTree = "<group>"; };
@@ -274,16 +268,12 @@
 			children = (
 				37E95DB9185B766900CBEEE8 /* RZDemoChoiceViewController.h */,
 				37E95DBA185B766900CBEEE8 /* RZDemoChoiceViewController.m */,
-				37E95DE7185B81EA00CBEEE8 /* RZStreamingPlotNibBasedViewController.h */,
-				37E95DE8185B81EA00CBEEE8 /* RZStreamingPlotNibBasedViewController.m */,
-				37E95DE9185B81EA00CBEEE8 /* RZStreamingPlotNibBasedViewController.xib */,
-				37E95DE4185B81AC00CBEEE8 /* RZStreamingPlotViewController.h */,
-				37E95DE5185B81AC00CBEEE8 /* RZStreamingPlotViewController.m */,
-				37E95DF0185BB38C00CBEEE8 /* RZStaticPlotNibBasedViewController.h */,
-				37E95DF1185BB38C00CBEEE8 /* RZStaticPlotNibBasedViewController.m */,
-				37E95DF2185BB38C00CBEEE8 /* RZStaticPlotNibBasedViewController.xib */,
-				37E95DF5185BB39300CBEEE8 /* RZStaticPlotViewController.h */,
-				37E95DF6185BB39300CBEEE8 /* RZStaticPlotViewController.m */,
+				37E95DE7185B81EA00CBEEE8 /* RZStaticStreamingPlotDemo.h */,
+				37E95DE8185B81EA00CBEEE8 /* RZStaticStreamingPlotDemo.m */,
+				37E95DE9185B81EA00CBEEE8 /* RZStaticStreamingPlotDemo.xib */,
+				37E95DF0185BB38C00CBEEE8 /* RZPulsePlotDemo.h */,
+				37E95DF1185BB38C00CBEEE8 /* RZPulsePlotDemo.m */,
+				37E95DF2185BB38C00CBEEE8 /* RZPulsePlotDemo.xib */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -384,8 +374,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E95DEB185B81EA00CBEEE8 /* RZStreamingPlotNibBasedViewController.xib in Resources */,
-				37E95DF4185BB38C00CBEEE8 /* RZStaticPlotNibBasedViewController.xib in Resources */,
+				37E95DEB185B81EA00CBEEE8 /* RZStaticStreamingPlotDemo.xib in Resources */,
+				37E95DF4185BB38C00CBEEE8 /* RZPulsePlotDemo.xib in Resources */,
 				37E95D92185B717B00CBEEE8 /* InfoPlist.strings in Resources */,
 				37E95D9A185B717B00CBEEE8 /* Images.xcassets in Resources */,
 			);
@@ -409,7 +399,7 @@
 				37E95DD9185B779900CBEEE8 /* RZBaseCollectionList.m in Sources */,
 				37E95DB8185B719E00CBEEE8 /* RZBaseStreamingPlotView.m in Sources */,
 				37E95DDF185B779900CBEEE8 /* RZFilteredCollectionList.m in Sources */,
-				37E95DF3185BB38C00CBEEE8 /* RZStaticPlotNibBasedViewController.m in Sources */,
+				37E95DF3185BB38C00CBEEE8 /* RZPulsePlotDemo.m in Sources */,
 				37E95DE1185B779900CBEEE8 /* RZSortedCollectionList.m in Sources */,
 				37E95DDB185B779900CBEEE8 /* RZCollectionListNotificationWrappers.m in Sources */,
 				37E95DDD185B779900CBEEE8 /* RZCompositeCollectionList.m in Sources */,
@@ -417,17 +407,15 @@
 				37E95DD8185B779900CBEEE8 /* RZArrayCollectionList.m in Sources */,
 				37E95DDA185B779900CBEEE8 /* RZCollectionListCollectionViewDataSource.m in Sources */,
 				4904B0EF18DC8685001521E5 /* RZPlotView.m in Sources */,
-				37E95DF8185BB39300CBEEE8 /* RZStaticPlotViewController.m in Sources */,
 				37E95DD7185B779900CBEEE8 /* NSFetchRequest+RZCreationHelpers.m in Sources */,
 				37E95DDC185B779900CBEEE8 /* RZCollectionListTableViewDataSource.m in Sources */,
 				37E95D98185B717B00CBEEE8 /* RZAppDelegate.m in Sources */,
 				4904B0F318DC87C7001521E5 /* RZStaticPlotView.m in Sources */,
 				37E95DBB185B766900CBEEE8 /* RZDemoChoiceViewController.m in Sources */,
 				4904B0F818DC93E5001521E5 /* RZStaticStreamingPlotView.m in Sources */,
-				37E95DEA185B81EA00CBEEE8 /* RZStreamingPlotNibBasedViewController.m in Sources */,
+				37E95DEA185B81EA00CBEEE8 /* RZStaticStreamingPlotDemo.m in Sources */,
 				37E95D94185B717B00CBEEE8 /* main.m in Sources */,
 				37E95DDE185B779900CBEEE8 /* RZFetchedCollectionList.m in Sources */,
-				37E95DE6185B81AC00CBEEE8 /* RZStreamingPlotViewController.m in Sources */,
 				37E95DE0185B779900CBEEE8 /* RZObserverCollection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
