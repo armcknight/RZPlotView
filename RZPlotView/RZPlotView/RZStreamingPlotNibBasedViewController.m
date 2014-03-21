@@ -9,11 +9,11 @@
 #import <CoreMotion/CoreMotion.h>
 
 #import "RZStreamingPlotNibBasedViewController.h"
-#import "RZStreamingPlotView.h"
+#import "RZBaseStreamingPlotView.h"
 
 @interface RZStreamingPlotNibBasedViewController ()
 
-@property (weak, nonatomic) IBOutlet RZStreamingPlotView *plotView;
+@property (weak, nonatomic) IBOutlet RZBaseStreamingPlotView *plotView;
 
 @property (weak, nonatomic) IBOutlet UISlider *yMinSlider;
 @property (weak, nonatomic) IBOutlet UISlider *yMaxSlider;
