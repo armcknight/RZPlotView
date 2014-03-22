@@ -17,6 +17,7 @@
 @property (assign, nonatomic) CGFloat yRange;
 @property (assign, nonatomic) CGFloat yScale;
 
+- (void)commonInit;
 - (void)setupPlotWithGrahicsContext:(CGContextRef)currentContext;
 
 @end
