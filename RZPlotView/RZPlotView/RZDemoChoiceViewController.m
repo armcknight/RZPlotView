@@ -12,6 +12,7 @@
 #import "RZStaticPlotNibBasedViewController.h"
 #import "RZStaticPlotViewController.h"
 #import "RZScatterPlotDemo.h"
+#import "RZPulsePlotDemo.h"
 
 @interface RZDemoChoiceViewController () <RZCollectionListTableViewDataSourceDelegate, UITableViewDelegate>
 
@@ -35,6 +36,7 @@
                           @"Streaming Plots", @[
                                                 NSStringFromClass([RZStreamingPlotNibBasedViewController class]),
                                                 NSStringFromClass([RZStreamingPlotViewController class])
+                                                NSStringFromClass([RZPulsePlotDemo class])
                                                 ],
                           @"Static Plots", @[
                                              NSStringFromClass([RZStaticPlotNibBasedViewController class]),

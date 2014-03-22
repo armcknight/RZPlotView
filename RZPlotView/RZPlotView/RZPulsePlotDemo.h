@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RZStaticPlotNibBasedViewController : UIViewController
+@interface RZPulsePlotDemo : UIViewController
 
 @end
