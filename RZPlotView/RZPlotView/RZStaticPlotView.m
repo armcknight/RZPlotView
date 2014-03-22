@@ -126,6 +126,8 @@
     
     CGContextAddPath(currentContext, path);
     CGContextFillPath(currentContext);
+    
+    CGPathRelease(path);
 }
 
 #pragma mark - Properties
