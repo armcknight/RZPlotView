@@ -7,10 +7,7 @@
 //
 
 #import "RZDemoChoiceViewController.h"
-#import "RZStreamingPlotNibBasedViewController.h"
-#import "RZStreamingPlotViewController.h"
-#import "RZStaticPlotNibBasedViewController.h"
-#import "RZStaticPlotViewController.h"
+#import "RZSolidStreamingPlotDemo.h"
 #import "RZScatterPlotDemo.h"
 #import "RZPulsePlotDemo.h"
 
@@ -28,19 +25,18 @@
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.translucent = NO;
+    
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     self.tableView.delegate = self;
     [self.view addSubview:self.tableView];
     
     self.demoChoiceACL = [[RZArrayCollectionList alloc] initWithSectionTitlesAndSectionArrays:
                           @"Streaming Plots", @[
-                                                NSStringFromClass([RZStreamingPlotNibBasedViewController class]),
-                                                NSStringFromClass([RZStreamingPlotViewController class])
+                                                NSStringFromClass([RZSolidStreamingPlotDemo class]),
                                                 NSStringFromClass([RZPulsePlotDemo class])
                                                 ],
                           @"Static Plots", @[
-                                             NSStringFromClass([RZStaticPlotNibBasedViewController class]),
-                                             NSStringFromClass([RZStaticPlotViewController class])
                                              NSStringFromClass([RZScatterPlotDemo class])
                                              ],
                           nil];
@@ -69,10 +65,14 @@
     id object = [self.demoChoiceACL objectAtIndexPath:indexPath];
     
     UIViewController *vcToPush = nil;
-    if ([object isEqualToString:NSStringFromClass([RZStreamingPlotNibBasedViewController class])]) {
-        vcToPush = [[RZStreamingPlotNibBasedViewController alloc] init];
-    } else if ([object isEqualToString:NSStringFromClass([RZStreamingPlotViewController class])]) {
-        vcToPush = [[RZStreamingPlotViewController alloc] init];
+    if ([object isKindOfClass:[NSString class]]) {
+        if ([object isEqualToString:NSStringFromClass([RZSolidStreamingPlotDemo class])]) {
+            vcToPush = [[RZSolidStreamingPlotDemo alloc] init];
+        } else if ([object isEqualToString:NSStringFromClass([RZPulsePlotDemo class])]) {
+            vcToPush = [[RZPulsePlotDemo alloc] init];
+        } else if ([object isEqualToString:NSStringFromClass([RZScatterPlotDemo class])]) {
+            vcToPush = [[RZScatterPlotDemo alloc] init];
+        }
     }
     
     [self.navigationController pushViewController:vcToPush animated:YES];
