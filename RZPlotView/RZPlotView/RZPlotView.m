@@ -41,7 +41,6 @@
 
 - (void)commonInit
 {
-    self.valuesAssigned = 0;
     // initialize yMin to 0 and yMax to height of frame
     _yMin = 0.f;
     _yMax = self.frame.size.height;
@@ -56,6 +55,8 @@
     _lineColor = 0.f;
     _lineAlpha = 1.f;
     _lineThickness = 1.0;
+    
+    self.valuesAssigned = 0;
     self.values = malloc((NSUInteger)self.xRange * sizeof(double));
 }
 
