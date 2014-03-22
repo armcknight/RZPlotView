@@ -13,6 +13,9 @@
 @property (assign, nonatomic) CGFloat yMin;
 @property (assign, nonatomic) CGFloat yMax;
 
+@property (assign, nonatomic) CGFloat xMin;
+@property (assign, nonatomic) CGFloat xMax;
+
 @property (assign, nonatomic) CGFloat lineColor;
 @property (assign, nonatomic) CGFloat lineAlpha;
 @property (assign, nonatomic) CGFloat lineThickness;

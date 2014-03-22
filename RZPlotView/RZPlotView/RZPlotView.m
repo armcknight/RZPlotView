@@ -42,16 +42,19 @@
 - (void)commonInit
 {
     self.valuesAssigned = 0;
-    self.maxNumberOfValues = floorf(self.frame.size.width);
-    self.values = malloc(self.maxNumberOfValues * sizeof(double));
-    
     // initialize yMin to 0 and yMax to height of frame
     _yMin = 0.f;
     _yMax = self.frame.size.height;
     
+    _xMin = 0.f;
+    _xMax = self.frame.size.width;
+    self.xRange = self.xMax - self.xMin;
+    self.xScale = self.frame.size.width / self.xRange;
+    
     _lineColor = 0.f;
     _lineAlpha = 1.f;
     _lineThickness = 1.0;
+    self.values = malloc((NSUInteger)self.xRange * sizeof(double));
 }
 
 #pragma mark - Public interface
@@ -59,7 +62,7 @@
 - (void)clear
 {
     self.valuesAssigned = 0;
-    self.values = malloc(self.maxNumberOfValues * sizeof(double));
+    self.values = malloc((NSUInteger)self.xRange * sizeof(double));
 }
 
 - (void)addValue:(CGFloat)value
@@ -96,6 +99,21 @@
 {
     _yMin = yMin;
     self.yRange = self.yMax - yMin;
+
+- (void)setXMax:(CGFloat)xMax
+{
+    _xMax = xMax;
+    self.xRange = xMax - self.xMin;
+    self.xScale = self.frame.size.width / self.xRange;
+    
+    [self setNeedsDisplay];
+}
+
+- (void)setXMin:(CGFloat)xMin
+{
+    _xMin = xMin;
+    self.xRange = self.xMax - xMin;
+    self.xScale = self.frame.size.width / self.xRange;
     
     [self setNeedsDisplay];
 }

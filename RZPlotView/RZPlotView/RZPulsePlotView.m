@@ -62,8 +62,9 @@
 
 - (void)addValue:(CGFloat)value
 {
-    if (self.valuesAssigned == self.maxNumberOfValues) {
-        if (self.replacementIndex >= self.maxNumberOfValues) {
+    NSUInteger valueAmountLimit = (NSUInteger)self.xRange;
+    if (self.valuesAssigned == valueAmountLimit) {
+        if (self.replacementIndex >= valueAmountLimit) {
             self.replacementIndex = 0;
         }
         self.values[self.replacementIndex++] = value;
