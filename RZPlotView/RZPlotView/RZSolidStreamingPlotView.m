@@ -6,12 +6,21 @@
 //  Copyright (c) 2014 raizlabs. All rights reserved.
 //
 
-#import "RZStaticStreamingPlotView.h"
+#import "RZSolidStreamingPlotView.h"
 #import "RZPlotView-Private.h"
 #import "RZStaticPlotView-Private.h"
 #import "RZBaseStreamingPlotView-Private.h"
 
-@implementation RZStaticStreamingPlotView
+@implementation RZSolidStreamingPlotView
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        
+    }
+    return self;
+}
 
 - (void)drawRect:(CGRect)rect
 {
@@ -30,15 +39,16 @@
 
 - (void)addValue:(CGFloat)value
 {
-    if (self.valuesAssigned == self.maxNumberOfValues) {
+    NSUInteger valueAmountLimit = (NSUInteger)self.xRange;
+    if (self.valuesAssigned == valueAmountLimit) {
         if (self.drawingMode == RZStreamingPlotDrawingModeShift) {
             //shift all values one to the left
-            for (int i = 1; i < self.maxNumberOfValues; i++) {
+            for (int i = 1; i < valueAmountLimit; i++) {
                 self.values[i-1] = self.values[i];
             }
-            self.values[self.maxNumberOfValues - 1] = value;
+            self.values[valueAmountLimit - 1] = value;
         } else if (self.drawingMode == RZStreamingPlotDrawingModeWrap) {
-            if (self.replacementIndex >= self.maxNumberOfValues) {
+            if (self.replacementIndex >= valueAmountLimit) {
                 self.replacementIndex = 0;
             }
             self.values[self.replacementIndex++] = value;

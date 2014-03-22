@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RZStreamingPlotNibBasedViewController : UIViewController
+@interface RZSolidStreamingPlotDemo : UIViewController
 
 @end

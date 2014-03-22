@@ -8,6 +8,6 @@
 
 #import "RZBaseStreamingPlotView.h"
 
-@interface RZStaticStreamingPlotView : RZBaseStreamingPlotView
+@interface RZSolidStreamingPlotView : RZBaseStreamingPlotView
 
 @end

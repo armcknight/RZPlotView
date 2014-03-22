@@ -6,28 +6,38 @@
 //  Copyright (c) 2013 raizlabs. All rights reserved.
 //
 
-#import <CoreMotion/CoreMotion.h>
+@import CoreMotion;
 
-#import "RZStreamingPlotNibBasedViewController.h"
-#import "RZBaseStreamingPlotView.h"
+#import "RZSolidStreamingPlotDemo.h"
+#import "RZSolidStreamingPlotView.h"
 
-@interface RZStreamingPlotNibBasedViewController ()
+@interface RZSolidStreamingPlotDemo ()
 
-@property (weak, nonatomic) IBOutlet RZBaseStreamingPlotView *plotView;
+@property (weak, nonatomic) IBOutlet RZSolidStreamingPlotView *plotView;
+@property (strong, nonatomic) IBOutlet UIScrollView *controlsScrollView;
+@property (strong, nonatomic) IBOutlet UIView *controlsView;
 
 @property (weak, nonatomic) IBOutlet UISlider *yMinSlider;
+@property (strong, nonatomic) IBOutlet UILabel *yMinLabel;
+
 @property (weak, nonatomic) IBOutlet UISlider *yMaxSlider;
+@property (strong, nonatomic) IBOutlet UILabel *yMaxLabel;
+
+@property (strong, nonatomic) IBOutlet UISlider *xMaxSlider;
+@property (strong, nonatomic) IBOutlet UILabel *xMaxLabel;
+
 @property (weak, nonatomic) IBOutlet UISlider *lineWidthSlider;
+@property (strong, nonatomic) IBOutlet UILabel *lineWidthLabel;
+
 @property (weak, nonatomic) IBOutlet UISlider *lineColorSlider;
+
 @property (weak, nonatomic) IBOutlet UISlider *lineAlphaSlider;
+
 @property (weak, nonatomic) IBOutlet UISlider *backgroundColorSlider;
 
 @property (weak, nonatomic) IBOutlet UILabel *envelopeColorLabel;
 @property (weak, nonatomic) IBOutlet UISlider *upperEnvelopeColorSlider;
 @property (weak, nonatomic) IBOutlet UISlider *lowerEnvelopeColorSlider;
-
-@property (weak, nonatomic) IBOutlet UILabel *tailLengthLabel;
-@property (weak, nonatomic) IBOutlet UISlider *tailLengthSlider;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *drawingModeSegmentedControl;
 
@@ -35,7 +45,7 @@
 
 @end
 
-@implementation RZStreamingPlotNibBasedViewController
+@implementation RZSolidStreamingPlotDemo
 
 - (void)viewDidLoad
 {
@@ -43,11 +53,17 @@
     
     self.motionManager = [[CMMotionManager alloc] init];
     
-//    self.yMinSlider.minimumValue = self.plotView.frame.size.height * -2.f;
-//    self.yMinSlider.maximumValue = 0.f;
-//    
-//    self.yMaxSlider.minimumValue = 1.f;
-//    self.yMaxSlider.maximumValue = self.plotView.frame.size.height * 2.f;
+    [self.controlsScrollView addSubview:self.controlsView];
+    self.controlsScrollView.contentSize = self.controlsView.frame.size;
+    
+    self.yMinSlider.minimumValue = self.plotView.frame.size.height * -2.f;
+    self.yMinSlider.maximumValue = 0.f;
+    
+    self.yMaxSlider.minimumValue = 1.f;
+    self.yMaxSlider.maximumValue = self.plotView.frame.size.height * 2.f;
+    
+    self.xMaxSlider.minimumValue = self.plotView.frame.size.width * 0.5f;
+    self.xMaxSlider.maximumValue = self.plotView.frame.size.width * 3.f;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -58,16 +74,22 @@
     [self.lineAlphaSlider setValue:1.f animated:YES];
     [self.lineWidthSlider setValue:1.f animated:YES];
     
-    [self.tailLengthSlider setValue:80.f animated:YES];
-    self.plotView.tailLength = 80.f;
-    
     [self.upperEnvelopeColorSlider setValue:0.f animated:YES];
     [self.lowerEnvelopeColorSlider setValue:0.f animated:YES];
     self.plotView.upperEnvelopeColor = 0.f;
     self.plotView.lowerEnvelopeColor = 0.f;
     
-//    [self.yMinSlider setValue:-0.5f * self.plotView.frame.size.height animated:YES];
-//    [self.yMaxSlider setValue:0.5f * self.plotView.frame.size.height animated:YES];
+    CGFloat startYMin = -0.5f * self.plotView.frame.size.height;
+    [self.yMinSlider setValue:startYMin animated:YES];
+    self.yMinLabel.text = [NSString stringWithFormat:@"yMin: %f", startYMin];
+    
+    CGFloat startYMax = 0.5f * self.plotView.frame.size.height;
+    [self.yMaxSlider setValue:startYMax animated:YES];
+    self.yMaxLabel.text = [NSString stringWithFormat:@"yMax: %f", startYMax];
+    
+    CGFloat startXMax = self.plotView.frame.size.width;
+    [self.xMaxSlider setValue:startXMax animated:YES];
+    self.xMaxLabel.text = [NSString stringWithFormat:@"xMax: %f", startXMax];
     
     [self beginSensorReporting];
 }
@@ -90,7 +112,9 @@
 }
 
 - (IBAction)lineThicknessChanged:(id)sender {
-    self.plotView.lineThickness = self.lineWidthSlider.value;
+    CGFloat lineWidth = self.lineWidthSlider.value;
+    self.plotView.lineThickness = lineWidth;
+    self.lineWidthLabel.text = [NSString stringWithFormat:@"line width: %f", lineWidth];
 }
 
 - (IBAction)backgroundColorChanged:(id)sender {
@@ -106,26 +130,26 @@
 }
 
 - (IBAction)yMinChanged:(id)sender {
-    self.plotView.yMin = self.yMinSlider.value;
+    CGFloat yMin = self.yMinSlider.value;
+    self.plotView.yMin = yMin;
+    self.yMinLabel.text = [NSString stringWithFormat:@"yMin: %f", yMin];
 }
 
 - (IBAction)yMaxChanged:(id)sender {
-    self.plotView.yMax = self.yMaxSlider.value;
-}
-
-- (IBAction)tailLengthChanged:(id)sender {
-    self.plotView.tailLength = self.tailLengthSlider.value;
+    CGFloat yMax = self.yMaxSlider.value;
+    self.plotView.yMax = yMax;
+    self.yMaxLabel.text = [NSString stringWithFormat:@"yMax: %f", yMax];
 }
 
 - (IBAction)drawingModeChanged:(id)sender {
-    self.envelopeColorLabel.hidden = self.drawingModeSegmentedControl.selectedSegmentIndex != RZStreamingPlotDrawingModeStream;
-    self.upperEnvelopeColorSlider.hidden = self.drawingModeSegmentedControl.selectedSegmentIndex != RZStreamingPlotDrawingModeStream;
-    self.lowerEnvelopeColorSlider.hidden = self.drawingModeSegmentedControl.selectedSegmentIndex != RZStreamingPlotDrawingModeStream;
-    
-    self.tailLengthLabel.hidden = self.drawingModeSegmentedControl.selectedSegmentIndex != RZStreamingPlotDrawingModePulse;
-    self.tailLengthSlider.hidden = self.drawingModeSegmentedControl.selectedSegmentIndex != RZStreamingPlotDrawingModePulse;
-    
     self.plotView.drawingMode = self.drawingModeSegmentedControl.selectedSegmentIndex;
 }
+
+- (IBAction)xMaxChanged:(id)sender {
+    CGFloat xMax = self.xMaxSlider.value;
+    self.plotView.xMax = xMax;
+    self.xMaxLabel.text = [NSString stringWithFormat:@"xMax: %f", xMax];
+}
+
 
 @end
