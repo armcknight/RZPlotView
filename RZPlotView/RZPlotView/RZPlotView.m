@@ -45,6 +45,8 @@
     // initialize yMin to 0 and yMax to height of frame
     _yMin = 0.f;
     _yMax = self.frame.size.height;
+    self.yRange = self.yMax - self.yMin;
+    self.yScale = self.frame.size.height / self.yRange;
     
     _xMin = 0.f;
     _xMax = self.frame.size.width;
@@ -74,9 +76,6 @@
 
 - (void)setupPlotWithGrahicsContext:(CGContextRef)currentContext
 {
-    self.yRange = self.yMax - self.yMin;
-    self.yScale = self.frame.size.height / self.yRange;
-    
     // draw time axis
     CGContextSetLineWidth(currentContext, 1.0f);
     CGContextMoveToPoint(currentContext, 0.f, self.frame.size.height / 2.f);
@@ -91,6 +90,7 @@
 {
     _yMax = yMax;
     self.yRange = yMax - self.yMin;
+    self.yScale = self.frame.size.height / self.yRange;
     
     [self setNeedsDisplay];
 }
@@ -99,6 +99,10 @@
 {
     _yMin = yMin;
     self.yRange = self.yMax - yMin;
+    self.yScale = self.frame.size.height / self.yRange;
+    
+    [self setNeedsDisplay];
+}
 
 - (void)setXMax:(CGFloat)xMax
 {
