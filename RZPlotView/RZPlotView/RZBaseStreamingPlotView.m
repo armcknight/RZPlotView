@@ -43,6 +43,8 @@
 
 - (void)commonInit
 {
+    [super commonInit];
+    
     self.replacementIndex = 0;
     self.headPointIndex = 0;
 }

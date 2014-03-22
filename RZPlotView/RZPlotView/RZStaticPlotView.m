@@ -41,6 +41,8 @@
 
 - (void)commonInit
 {
+    [super commonInit];
+    
     _lowerEnvelopeColor = 1.f;
     _upperEnvelopeColor = 1.f;
 }
