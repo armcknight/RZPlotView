@@ -78,11 +78,11 @@
 - (void)setupPlotWithGrahicsContext:(CGContextRef)currentContext
 {
     // draw time axis
-    CGContextSetLineWidth(currentContext, 1.0f);
-    CGContextMoveToPoint(currentContext, 0.f, self.frame.size.height / 2.f);
-    CGContextAddLineToPoint(currentContext, self.frame.size.width, self.frame.size.height / 2.f);
-    CGContextSetStrokeColorWithColor(currentContext, [UIColor colorWithWhite:0.9f alpha:1.f].CGColor);
-    CGContextStrokePath(currentContext);
+//    CGContextSetLineWidth(currentContext, 1.0f);
+//    CGContextMoveToPoint(currentContext, 0.f, self.frame.size.height / 2.f);
+//    CGContextAddLineToPoint(currentContext, self.frame.size.width, self.frame.size.height / 2.f);
+//    CGContextSetStrokeColorWithColor(currentContext, [UIColor colorWithWhite:0.9f alpha:1.f].CGColor);
+//    CGContextStrokePath(currentContext);
 }
 
 #pragma mark - Properties
