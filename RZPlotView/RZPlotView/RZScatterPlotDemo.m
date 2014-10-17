@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 raizlabs. All rights reserved.
 //
 
+@import CoreMotion;
+
 #import "RZScatterPlotDemo.h"
 
 #import "RZScatterPlotView.h"
@@ -34,6 +36,9 @@
 @property (strong, nonatomic) IBOutlet UISlider *borderWidthSlider;
 @property (strong, nonatomic) IBOutlet UISlider *pointAlphaSlider;
 
+@property (strong, nonatomic) CMAltimeter *altimeter;
+@property (assign, nonatomic) NSMutableArray *timeToAltitudeValues;
+
 @end
 
 @implementation RZScatterPlotDemo
@@ -45,27 +50,24 @@
     [self.controlsScrollView addSubview:self.controlsView];
     self.controlsScrollView.contentSize = self.controlsView.frame.size;
     
-    [self.plotView addPoint:CGPointMake(50.f, 50.f)];
-    [self.plotView addPoint:CGPointMake(100.f, 100.f)];
-    [self.plotView addPoint:CGPointMake(150.f, 150.f)];
-    [self.plotView addPoint:CGPointMake(200.f, 200.f)];
-}
-
-- (void)viewDidLayoutSubviews
-{
-    [super viewDidLayoutSubviews];
+    self.altimeter = [CMAltimeter new];
     
-    self.xMinSlider.minimumValue = 0.f;
-    self.xMinSlider.maximumValue = 100.f;
+    static const NSUInteger min = -1000;
+    static const NSUInteger max = 2000;
+    self.xMinSlider.minimumValue = 0;
+    self.xMinSlider.maximumValue = max;
     
-    self.xMaxSlider.minimumValue = 100.f;
-    self.xMaxSlider.maximumValue = 300.f;
+    self.xMaxSlider.minimumValue = 1;
+    self.xMaxSlider.maximumValue = max;
     
-    self.yMinSlider.minimumValue = 0.f;
-    self.yMinSlider.maximumValue = 100.f;
+    CGFloat viewYMin = self.plotView.yMin;
+    CGFloat viewYMax = self.plotView.yMax;
     
-    self.yMaxSlider.minimumValue = 100.f;
-    self.yMaxSlider.maximumValue = 300.f;
+    self.yMinSlider.minimumValue = viewYMin;
+    self.yMinSlider.maximumValue = 0;
+    
+    self.yMaxSlider.minimumValue = 1;
+    self.yMaxSlider.maximumValue = viewYMax;
     
     [self.xMinSlider setValue:self.plotView.xMin animated:YES];
     [self.xMaxSlider setValue:self.plotView.xMax animated:YES];
@@ -78,8 +80,34 @@
     self.yMaxLabel.text = [NSString stringWithFormat:@"yMax: %f", self.plotView.yMax];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+}
+
+- (IBAction)startPressed:(id)sender {
+    ((UIButton *)sender).enabled = NO;
+    NSTimeInterval startTime = [[NSDate date] timeIntervalSince1970];
+    
+    self.timeToAltitudeValues = [NSMutableArray array];
+    
+    dispatch_async(dispatch_queue_create("altitude readings", NULL), ^{
+        [self.altimeter startRelativeAltitudeUpdatesToQueue:[NSOperationQueue new] withHandler:^(CMAltitudeData *altitudeData, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.plotView addPoint:CGPointMake([[NSDate date] timeIntervalSince1970] - startTime, altitudeData.relativeAltitude.doubleValue)];
+            });
+        }];
+    });
+    
+}
+- (IBAction)stopPressed:(id)sender {
+    [self.altimeter stopRelativeAltitudeUpdates];
+}
+
 - (IBAction)xMinChanged:(id)sender {
     CGFloat xMin = self.xMinSlider.value;
+    NSLog(@"xMin: %.9f", xMin);
     self.plotView.xMin = xMin;
     self.xMinLabel.text = [NSString stringWithFormat:@"xMin: %f", xMin];
 }

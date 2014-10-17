@@ -42,8 +42,8 @@
 - (void)commonInit
 {
     // initialize yMin to 0 and yMax to height of frame
-    _yMin = 0.f;
-    _yMax = self.frame.size.height;
+    _yMin = -self.frame.size.height / 2;
+    _yMax = self.frame.size.height / 2;
     self.yRange = self.yMax - self.yMin;
     self.yScale = self.frame.size.height / self.yRange;
     
